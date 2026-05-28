@@ -1,105 +1,81 @@
-# swiftui-components-and-state
+# SwiftUI Componentes e Estados - Guia 7
 
-Introduction to SwiftUI visual components and reactive state management through a simple interactive counter application for iOS.
-
-![Swift](https://img.shields.io/badge/Swift-5-orange)
-![SwiftUI](https://img.shields.io/badge/Framework-SwiftUI-blue)
-![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey)
-
-## About
-
-This project was created as an introductory SwiftUI activity focused on learning the fundamentals of Apple's declarative UI framework.
-
-The application demonstrates how visual components and state management work together to create dynamic and reactive interfaces in iOS applications.
+Este projeto foi reestruturado de forma moderna e robusta para servir como um laboratório completo de SwiftUI, contendo tanto o **Contador Simples** quanto o exercício da **Calculadora Básica**. 
 
 ---
 
-## Features
+## Como Inicializar e Rodar o Projeto no macOS (Xcode)
 
-* Interactive counter interface
-* Increment and decrement buttons
-* Real-time state updates using `@State`
-* Basic SwiftUI layout structure
-* Reactive UI rendering
+Como você está visualizando este código em um ambiente Windows, você precisará transferir esta pasta para o seu macOS (ou clonar via Git) e seguir os passos abaixo para gerar o projeto do Xcode.
 
----
-
-## Technologies
-
-* Swift
-* SwiftUI
-* Xcode
+### Pré-requisitos
+1. Ter o **macOS** com o **Xcode** instalado (versão 15+ recomendado).
+2. Ter o gerenciador de pacotes **Homebrew** instalado no Mac (para instalar o XcodeGen).
 
 ---
 
-## Concepts Explored
+### Passo a Passo de Inicialização
 
-* SwiftUI Views
-* State Management
-* Declarative UI
-* Event Handling
-* Reactive Interfaces
-* Component-based Design
+#### 1. Instalar o XcodeGen no macOS
+Abra o **Terminal** no seu Mac e execute o comando abaixo para instalar o XcodeGen via Homebrew:
+```bash
+brew install xcodegen
+```
+
+#### 2. Gerar o Projeto `.xcodeproj`
+Navegue até a pasta raiz deste projeto no Terminal do seu Mac e execute:
+```bash
+xcodegen generate
+```
+*Este comando lerá as configurações em `project.yml` e criará automaticamente o arquivo `SwiftUIContador.xcodeproj` na pasta raiz.*
+
+#### 3. Abrir e Rodar no Xcode
+Agora você pode abrir o projeto gerado rodando:
+```bash
+open SwiftUIContador.xcodeproj
+```
+Ou simplesmente clicando duas vezes no arquivo `SwiftUIContador.xcodeproj` pelo Finder do Mac.
+
+No Xcode:
+- Escolha o Simulador do iPhone desejado no menu superior.
+- Pressione **⌘ + R** (Command + R) ou clique no botão de Play (triângulo no topo esquerdo) para compilar e executar o aplicativo.
 
 ---
 
-## Project Structure
+## Arquitetura do Projeto Gerado
+
+A estrutura de arquivos criada é a seguinte:
 
 ```bash
 swiftui-components-and-state/
 │
-├── ContentView.swift
-├── SwiftUIContadorApp.swift
-└── Assets.xcassets
+├── project.yml                     # Arquivo de especificação do XcodeGen
+├── README.md                       # Instruções de setup e documentação
+│
+└── SwiftUIContador/                # Código-fonte do aplicativo Swift
+    ├── Info.plist                  # Propriedades do bundle iOS
+    ├── SwiftUIContadorApp.swift    # Ponto de entrada do aplicativo (@main)
+    ├── ContentView.swift           # Menu principal (Dashboard)
+    ├── ContadorView.swift          # Tela 1: Contador reativo simples
+    ├── CalculadoraView.swift        # Tela 2: Calculadora (Exercício resolvido)
+    └── Assets.xcassets/            # Recursos visuais (cores, ícone)
 ```
 
 ---
 
-## Getting Started
+## Recursos Implementados
 
-### Requirements
+### 1. Contador Simples
+- Demonstra o uso de `@State` para gerenciamento reativo de estado.
+- Layout vertical (`VStack`) e horizontal (`HStack`).
+- Botões de **Incrementar**, **Decrementar** e **Reiniciar** com efeitos de animação física (`withAnimation(.spring)`).
 
-* macOS
-* Xcode 15+
-* iOS Simulator or physical iPhone
+### 2. Calculadora Básica (Exercício)
+- Entrada de dados utilizando `TextField` com teclado decimal (`.decimalPad`) para suportar números quebrados.
+- Funções isoladas e seguras para as 4 operações básicas (`somar`, `subtrair`, `multiplicar` e `dividir`).
+- **Tratamento de erros:**
+  - Evita falhas ou crashes se os campos estiverem vazios, retornando erro de "Entrada inválida".
+  - Validação e proteção contra divisão por zero, mostrando a mensagem de erro apropriada na tela.
+- **Formatação numérica:** Usa `NumberFormatter` para limitar o resultado a no máximo 4 casas decimais.
+- Botão **Limpar** para reiniciar todos os estados e campos de texto simultaneamente.
 
----
-
-## Running the Project
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/your-username/swiftui-components-and-state.git
-```
-
-2. Open the project in Xcode
-
-3. Run the application:
-
-```bash
-⌘ + R
-```
-
----
-
-## Application Overview
-
-The application contains:
-
-* A text label displaying the counter value
-* A button to increment the counter
-* A button to decrement the counter
-* Automatic interface updates when the state changes
-
----
-
-## Learning Objective
-
-The main goal of this project is to understand how SwiftUI simplifies interface development by combining declarative components with reactive state management.
-
----
-
-## License
-
-This project is licensed under the MIT License.
