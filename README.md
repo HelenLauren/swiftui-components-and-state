@@ -5,7 +5,6 @@ Introduction to SwiftUI visual components and reactive state management through 
 ![Swift](https://img.shields.io/badge/Swift-5-orange)
 ![SwiftUI](https://img.shields.io/badge/Framework-SwiftUI-blue)
 ![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 ## About
 
