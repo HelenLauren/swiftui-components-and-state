@@ -69,7 +69,7 @@ struct ContentView: View {
                                 .foregroundColor(.secondary)
                             Text("Introdução ao Desenvolvimento iOS")
                                 .font(.system(size: 10))
-                                .foregroundColor(.tertiaryLabel)
+                                .foregroundColor(.secondary)
                         }
                         .padding(.top, 40)
                         .padding(.bottom, 20)
@@ -117,7 +117,7 @@ struct MenuCard: View {
             // Arrow indicator
             Image(systemName: "chevron.right")
                 .font(.system(size: 14, weight: .bold))
-                .foregroundColor(Color(.tertiaryLabel))
+                .foregroundColor(.secondary)
         }
         .padding()
         .background(Color(.systemBackground))
